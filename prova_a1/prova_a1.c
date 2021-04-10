@@ -10,7 +10,7 @@ void reports (Student *s){
         printf("Student ID: ");
         scanf("%ld", &s[i].code);
         printf("Name: ");
-        scanf("%[A-Z a-z]", s[i].name);
+        scanf("%s", s[i].name);
         printf("Grade 1: ");
         scanf("%f", &s[i].grade1);
         printf("Grade 2: ");
