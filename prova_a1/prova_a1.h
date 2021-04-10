@@ -1,3 +1,9 @@
+//Função de Limpar Buffer
+void cleanBuffer(void){
+    char c;
+    while ((c = getchar()) != '\n' && c != E0F);    
+}
+
 //Struct da Questão 1
 typedef struct{
     long code;
