@@ -7,16 +7,22 @@
 void reports (Student *s){
     int i;
     for (i = 0; i < TOTSTUDENTS; i++ ){
-        printf("Student ID: ");
-        scanf("%ld", &s[i].code);
+        //printf("Student ID: ");
+        //scanf("%ld", &s[i].code);
         printf("Name: ");
-        scanf("%99[^\n]\n", s[i].name);
+        gets(s[i].name);
+        //scanf("%[A-Z a-z]", s[i].name); //REGEX
+        //setbuf(stdin, NULL);
+        //fflush(stdin);
+        //fflush(stdout);
         printf("Grade 1: ");
         scanf("%f", &s[i].grade1);
+        /*
         printf("Grade 2: ");
         scanf("%f", &s[i].grade2);
         printf("Grade 3: ");
         scanf("%f", &s[i].grade3);
+        */
     }
 }
 
