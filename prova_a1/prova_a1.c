@@ -8,15 +8,15 @@ void reports (Student *s){
     int i;
     for (i = 0; i < TOTSTUDENTS; i++ ){
         printf("Student ID: ");
-        scanf("%ld", s[i].code);
+        scanf("%ld", &s[i].code);
         printf("Name: ");
         scanf("%[A-Z a-z]", s[i].name);
         printf("Grade 1: ");
-        scanf("%f", s[i].grade1)
+        scanf("%f", &s[i].grade1);
         printf("Grade 2: ");
-        scanf("%f", s[i].grade2);
+        scanf("%f", &s[i].grade2);
         printf("Grade 3: ");
-        scanf("%f", s[i].grade3);
+        scanf("%f", &s[i].grade3);
     }
 }
 
@@ -28,11 +28,11 @@ int main(){
     reports(students);
 
     for(int i = 0; i < TOTSTUDENTS; i++){
-        printf("%d Student ID: %ld", i+1, students[i].code);
-        printf("%d Name: %s", i+1, students[i].name);
-        printf("Grade 1: %.1f", students[i].grade1);
-        printf("Grade 2: %.1f", students[i].grade2);
-        printf("Grade 3: %.1f", students[i].grade3);
+        printf("%d Student ID: %ld\n", i+1, students[i].code);
+        printf("%d Name: %s\n", i+1, students[i].name);
+        printf("Grade 1: %.1f\n", students[i].grade1);
+        printf("Grade 2: %.1f\n", students[i].grade2);
+        printf("Grade 3: %.1f\n", students[i].grade3);
     }
 
     
