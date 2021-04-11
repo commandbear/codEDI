@@ -29,16 +29,17 @@ void reports(Student *s){
     
     for(i = 0; i < TOTSTUDENTS; i++){
         printf("==========================\n");
-        printf("\nCURRENTY: %d\n", i);
         printf("Student ID: %ld\n", s[i].code);
         printf("Name: %s\n", s[i].name);
         printf("Grade 1: %.1f\n", s[i].grade1);
         printf("Grade 2: %.1f\n", s[i].grade2);
         printf("Grade 3: %.1f\n", s[i].grade3);
-
+    }
+    printf("\n\nOUT OF FIRST LOOP -> CRNTY HG: %d\n\n", highest_grade);
+    for(i = 1; i < TOTSTUDENTS; i++){
         if(s[i].grade1 > s[highest_grade].grade2 && s[i].grade1 > s[highest_grade].grade3){
             highest_grade = i;
-            printf("\nCURRENTY i: %d\n CURRENTY HIGHEST GRADE: %d\n", i, highest_grade);
+            printf("\n->CURRENTY i: %d\n->CURRENTY HIGHEST GRADE: %d\n", i, highest_grade);
         } 
     }
    
