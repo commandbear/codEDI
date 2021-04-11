@@ -2,7 +2,7 @@
 
 #include <stdio.h>
 #include "prova_a1.h"
-#define TOTSTUDENTS 2
+#define TOTSTUDENTS 5
 
 //Questão 1
 void reports (Student *s){
@@ -12,7 +12,7 @@ void reports (Student *s){
         //setbuf(stdin, NULL);
         printf("Student ID: ");
         scanf("%ld", &s[i].code);
-        setbuf(stdin, NULL);
+        setbuf(stdin, NULL); 
         printf("Name: ");
         scanf("%[A-Z a-z]", s[i].name); //REGEX
         printf("Grade 1: ");
@@ -20,7 +20,8 @@ void reports (Student *s){
         printf("Grade 2: ");
         scanf("%f", &s[i].grade2);
         printf("Grade 3: ");
-        scanf("%f", &s[i].grade3);        
+        scanf("%f", &s[i].grade3);
+        printf("-----------------------------\n");
     }
 }
 
@@ -32,6 +33,7 @@ int main(){
     reports(students);
 
     for(int i = 0; i < TOTSTUDENTS; i++){
+        printf("==========================\n");
         printf("%d Student ID: %ld\n", i+1, students[i].code);
         printf("%d Name: %s\n", i+1, students[i].name);
         printf("Grade 1: %.1f\n", students[i].grade1);
