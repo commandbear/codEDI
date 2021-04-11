@@ -2,6 +2,7 @@
 
 #include <stdio.h>
 #include <locale.h>
+#include <conio.h>
 #include "prova_a1.h"
 #define TOTSTUDENTS 3
 
@@ -94,26 +95,30 @@ int main(){
     int choice;
     Student students[TOTSTUDENTS];
     setlocale(LC_ALL, "Portuguese"); //aceitar caracteres especiais e acentuação
-    printf("Digite a questão desejada {1, 2, 3, 4, 5} -> {0} Sair:");
-    scanf("%d", &choice);
-    switch (choice){
-    case 1:
-        populateStudents(students); //passa os parâmetros do vetor para a função
-        reports(students);
-        break;
-    case 2:
-        printf("Questão 2 em construção\n"); break;
-    case 3:
-        printf("Questão 3 em construção\n"); break;
-    case 4:
-        printf("Questão 4 em construção\n"); break;
-    case 5:
-        printf("Questão 5 em construção\n"); break;
-    case 0:
-        printf("Saindo...\n\n"); break;
-    default:
-        printf("ON BUILDING\n"); break;
-    }    
+    do{
+        printf("Digite a questão desejada {1, 2, 3, 4, 5} -> {0} Sair: ");
+        scanf("%d", &choice);
+        switch (choice){
+        case 1:
+            populateStudents(students); //passa os parâmetros do vetor para a função
+            reports(students);
+            break;
+        case 2:
+            printf("Questão 2 em construção\n"); break;
+        case 3:
+            printf("Questão 3 em construção\n"); break;
+        case 4:
+            printf("Questão 4 em construção\n"); break;
+        case 5:
+            printf("Questão 5 em construção\n"); break;
+        case 0:
+            printf("Saindo...\n\n"); break;
+        default:
+            printf("OPÇÃO INVÁLIDA\n"); break;
+        }
+        //system("cls");
+    } while (choice != 0);
+    
 
     return 0;
 }
