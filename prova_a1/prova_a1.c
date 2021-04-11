@@ -37,9 +37,8 @@ void reports(Student *s){
     }
     printf("\n\nOUT OF FIRST LOOP -> CRNTY HG: %d\n\n", highest_grade);
     for(i = 1; i < TOTSTUDENTS; i++){
-        if(s[i].grade1 > s[highest_grade].grade2 && s[i].grade1 > s[highest_grade].grade3){
+        if(s[i].grade1 > s[highest_grade].grade1){
             highest_grade = i;
-            printf("\n->CURRENTY i: %d\n->CURRENTY HIGHEST GRADE: %d\n", i, highest_grade);
         } 
     }
    
