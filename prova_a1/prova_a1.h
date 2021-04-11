@@ -16,7 +16,7 @@ typedef struct{
 typedef struct {
     char name[100];
     int victories;
-    int draw;
+    int draws;
     int defeats;
     int goal_diff;
 } Team;

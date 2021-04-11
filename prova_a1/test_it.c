@@ -2,6 +2,7 @@
 #include "prova_a1.h"
 #define N 3
 
+//Questão 1 - Rascunho
 /*
 void testeIteracao(Student *student){
     for(int i = 0; i < N; i++){
@@ -16,6 +17,33 @@ void testeIteracao(Student *student){
 }
 */
 
+//Questão 2 - Rascunho
+void populate_teams(Team *t){
+    for(int i = 0; i < N; i++){
+        printf("---------------------------------------\n");
+        setbuf(stdin, NULL);
+        printf("Time: ");
+        scanf("%[A-Z a-z]", t[i].name);
+        printf("Vitorias: ");
+        scanf("%d", &t[i].victories);
+        printf("Empates: ");
+        scanf("%d", &t[i].draws);
+        printf("Derrotas: ");
+        scanf("%d", &t[i].defeats);
+        printf("Saldo: ");
+        scanf("%d", &t[i].goal_diff);
+    }
+}
+void tournment(Team *t){
+    for (int i = 0; i < N; i++){
+        printf("=======================================\n");
+        printf("Time    : %s\n", t[i].name);
+        printf("Vitorias: %d\n", t[i].victories);
+        printf("Empates : %d\n", t[i].draws);
+        printf("Derrotas: %d\n", t[i].defeats);
+        printf("Saldo   : %d\n", t[i].goal_diff);
+    } 
+}
 int main(){
     //Questão 1 - Rascunho
     /*
@@ -40,7 +68,9 @@ int main(){
     */
     
    //Questão 2 - Rascunho
-   
+   Team teams[N];
+   populate_teams(teams);
+   tournment(teams);
     
     return 0;
 }
