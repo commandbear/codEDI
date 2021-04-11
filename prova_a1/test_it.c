@@ -2,6 +2,7 @@
 #include "prova_a1.h"
 #define N 3
 
+/*
 void testeIteracao(Student *student){
     for(int i = 0; i < N; i++){
         setbuf(stdin, NULL);
@@ -13,8 +14,11 @@ void testeIteracao(Student *student){
         scanf("%f", &student[i].grade2);
     }
 }
+*/
 
 int main(){
+    //Questão 1 - Rascunho
+    /*
     Student student[N];
     int nota_alta, nota_baixa;
     testeIteracao(student);
@@ -33,6 +37,10 @@ int main(){
         }
     }
     printf("Primeira Nota mais alta: %f", student[nota_alta].grade1);
+    */
+    
+   //Questão 2 - Rascunho
+   
     
     return 0;
 }
