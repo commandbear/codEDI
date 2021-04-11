@@ -2,14 +2,12 @@
 
 #include <stdio.h>
 #include "prova_a1.h"
-#define TOTSTUDENTS 5
+#define TOTSTUDENTS 2
 
 //Questão 1
-void reports (Student *s){
-    int i;
-    void cleanBuffer(void);
-    for (i = 0; i < TOTSTUDENTS; i++ ){
-        //setbuf(stdin, NULL);
+void populateStudents (Student *s){
+    for (int i = 0; i < TOTSTUDENTS; i++ ){
+        printf("-----------------------------\n");
         printf("Student ID: ");
         scanf("%ld", &s[i].code);
         setbuf(stdin, NULL); 
@@ -21,27 +19,25 @@ void reports (Student *s){
         scanf("%f", &s[i].grade2);
         printf("Grade 3: ");
         scanf("%f", &s[i].grade3);
-        printf("-----------------------------\n");
     }
 }
 
-
+void reports(Student *s){
+    for(int i = 0; i < TOTSTUDENTS; i++){
+        printf("==========================\n");
+        printf("%d Student ID: %ld\n", i+1, s[i].code);
+        printf("%d Name: %s\n", i+1, s[i].name);
+        printf("Grade 1: %.1f\n", s[i].grade1);
+        printf("Grade 2: %.1f\n", s[i].grade2);
+        printf("Grade 3: %.1f\n", s[i].grade3);
+    }
+}
 
 int main(){
     Student students[TOTSTUDENTS];
 
+    populateStudents(students); //passa os parâmetros do vetor para a função
     reports(students);
-
-    for(int i = 0; i < TOTSTUDENTS; i++){
-        printf("==========================\n");
-        printf("%d Student ID: %ld\n", i+1, students[i].code);
-        printf("%d Name: %s\n", i+1, students[i].name);
-        printf("Grade 1: %.1f\n", students[i].grade1);
-        printf("Grade 2: %.1f\n", students[i].grade2);
-        printf("Grade 3: %.1f\n", students[i].grade3);
-    }
-
     
-
     return 0;
 }
