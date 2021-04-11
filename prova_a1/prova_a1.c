@@ -33,11 +33,16 @@ void reports(Student *s){
         printf("Grade 1: %.1f\n", s[i].grade1);
         printf("Grade 2: %.1f\n", s[i].grade2);
         printf("Grade 3: %.1f\n", s[i].grade3);
+/*
+        if(s[i].grade1 > s[i].grade2 > s[i].grade3 || s[i].grade1 > s[i].grade3 > s[i].grade2){
+            highest_grade = i;
+        } */
     }
 
     //captando o valor do indice
-    /*
-    for(i = 0; i < TOTSTUDENTS; i++){
+    
+    for(i = 1; i < TOTSTUDENTS; i++){
+        /*
         if(s[i].grade1 > s[i].grade2 && s[i].grade2 > s[i].grade3){
             highest_grade = s[i].grade1; //valor mais alto é atribuido à variável highest_grade (nota mais alta)
             lowest_grade = s[i].grade3;
@@ -56,10 +61,14 @@ void reports(Student *s){
         } else if(s[i].grade3 > s[i].grade1 && s[i].grade1 > s[i].grade2){
             highest_grade = s[i].grade3;
             lowest_grade = s[i].grade2;
-        }
-    }*/
+        }*/
+        if(s[i].grade1 > s[i].grade2 && s[i].grade1 > s[i].grade3){
+            highest_grade = i;
+        } 
+    }
     //captando o índice
-    for(i = 1; i < TOTSTUDENTS; i++){
+    /*
+    for(i = 0; i < TOTSTUDENTS; i++){
         if(s[i].grade1 > s[i].grade2 && s[i].grade2 > s[i].grade3){
             highest_grade = i; 
             lowest_grade = i;
@@ -79,11 +88,11 @@ void reports(Student *s){
             highest_grade = i;
             lowest_grade = i;
         }
-    }
+    }*/
     //printf("Without INDEX: The highest grade is %.1f\n", highest_grade);
     //printf("Without INDEX: The lowest grade is %.1f\n", lowest_grade);
     printf("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n");
-    printf("With INDEX: The highest grade is %.1f\n", s[highest_grade].grade1);
+    printf("The highest first grade is %.1f\n", s[highest_grade].grade1);
     //printf("With INDEX: The lowest grade is %.1f\n", s[i].grade1);
 }
 
