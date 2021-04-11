@@ -28,8 +28,8 @@ void reports(Student *s){
 
     for(i = 0; i < TOTSTUDENTS; i++){
         printf("==========================\n");
-        printf("%d Student ID: %ld\n", i+1, s[i].code);
-        printf("%d Name: %s\n", i+1, s[i].name);
+        printf("%d Student ID: %ld\n", s[i].code);
+        printf("%d Name: %s\n", s[i].name);
         printf("Grade 1: %.1f\n", s[i].grade1);
         printf("Grade 2: %.1f\n", s[i].grade2);
         printf("Grade 3: %.1f\n", s[i].grade3);
@@ -39,8 +39,7 @@ void reports(Student *s){
         } */
     }
 
-    //captando o valor do indice
-    
+    //captando o valor do indice    
     for(i = 1; i < TOTSTUDENTS; i++){
         /*
         if(s[i].grade1 > s[i].grade2 && s[i].grade2 > s[i].grade3){
