@@ -63,6 +63,7 @@ void reports(Student *s){
         }*/
         if(s[i].grade1 > s[i].grade2 && s[i].grade1 > s[i].grade3){
             highest_grade = i;
+            printf("CURRENTY: %d", i);
         } 
     }
     //captando o índice
