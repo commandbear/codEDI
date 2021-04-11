@@ -1,7 +1,7 @@
 //Função de Limpar Buffer
 void cleanBuffer(void){
     char c;
-    while ((c = getchar()) != '\n' && c != E0F);    
+    while ((c = getchar()) != '\n' && c != EOF);    
 }
 
 //Struct da Questão 1

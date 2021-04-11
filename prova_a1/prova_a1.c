@@ -3,16 +3,20 @@
 #include <stdio.h>
 #include "prova_a1.h"
 #define TOTSTUDENTS 2
+
 //Questão 1
 void reports (Student *s){
     int i;
+    void cleanBuffer(void);
     for (i = 0; i < TOTSTUDENTS; i++ ){
+        setbuf(stdin, NULL);
         //printf("Student ID: ");
         //scanf("%ld", &s[i].code);
         printf("Name: ");
-        gets(s[i].name);
-        //scanf("%[A-Z a-z]", s[i].name); //REGEX
-        //setbuf(stdin, NULL);
+        scanf("%[A-Z a-z]", s[i].name); //REGEX
+        //gets(s[i].name);
+        //cleanBuffer();
+        setbuf(stdin, NULL);
         //fflush(stdin);
         //fflush(stdout);
         printf("Grade 1: ");
