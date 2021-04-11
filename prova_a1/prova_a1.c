@@ -24,7 +24,7 @@ void populateStudents (Student *s){
 
 void reports(Student *s){
     int i;
-    float highest_grade = 0, lowest_grade = 0;
+    int highest_grade = 0, lowest_grade = 0;
 
     for(i = 0; i < TOTSTUDENTS; i++){
         printf("==========================\n");
@@ -35,11 +35,13 @@ void reports(Student *s){
         printf("Grade 3: %.1f\n", s[i].grade3);
     }
 
+    //captando o valor do indice
+    /*
     for(i = 0; i < TOTSTUDENTS; i++){
         if(s[i].grade1 > s[i].grade2 && s[i].grade2 > s[i].grade3){
             highest_grade = s[i].grade1; //valor mais alto é atribuido à variável highest_grade (nota mais alta)
-            lowest_grade = s[i].grade3
-        } else if(s[i].grade2 > s[i].grade1 && s[i].grade1 > [i].grade3  ){
+            lowest_grade = s[i].grade3;
+        } else if(s[i].grade2 > s[i].grade1 && s[i].grade1 > s[i].grade3  ){
             highest_grade = s[i].grade2;
             lowest_grade = s[i].grade3;
         } else if(s[i].grade3 > s[i].grade2 && s[i].grade2 > s[i].grade1){
@@ -55,7 +57,34 @@ void reports(Student *s){
             highest_grade = s[i].grade3;
             lowest_grade = s[i].grade2;
         }
+    }*/
+    //captando o índice
+    for(i = 1; i < TOTSTUDENTS; i++){
+        if(s[i].grade1 > s[i].grade2 && s[i].grade2 > s[i].grade3){
+            highest_grade = i; 
+            lowest_grade = i;
+        } else if(s[i].grade2 > s[i].grade1 && s[i].grade1 > s[i].grade3){
+            highest_grade = i;
+            lowest_grade = i;
+        } else if(s[i].grade3 > s[i].grade2 && s[i].grade2 > s[i].grade1){
+            highest_grade = i;
+            lowest_grade = i;
+        } else if(s[i].grade1 > s[i].grade3 && s[i].grade3 > s[i].grade2){
+            highest_grade = i;
+            lowest_grade = i;
+        } else if(s[i].grade2 > s[i].grade3 && s[i].grade3 > s[i].grade1){
+            highest_grade = i;
+            lowest_grade = i;
+        } else if(s[i].grade3 > s[i].grade1 && s[i].grade1 > s[i].grade2){
+            highest_grade = i;
+            lowest_grade = i;
+        }
     }
+    //printf("Without INDEX: The highest grade is %.1f\n", highest_grade);
+    //printf("Without INDEX: The lowest grade is %.1f\n", lowest_grade);
+    printf("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n");
+    printf("With INDEX: The highest grade is %.1f\n", s[highest_grade].grade1);
+    //printf("With INDEX: The lowest grade is %.1f\n", s[i].grade1);
 }
 
 int main(){
