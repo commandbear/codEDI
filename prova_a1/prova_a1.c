@@ -2,7 +2,7 @@
 
 #include <stdio.h>
 #include "prova_a1.h"
-#define TOTSTUDENTS 2
+#define TOTSTUDENTS 3
 
 //Questão 1
 void populateStudents (Student *s){
@@ -25,7 +25,8 @@ void populateStudents (Student *s){
 void reports(Student *s){
     int i;
     int highest_grade = 0, lowest_grade = 0;
-    float avg = 0;
+    float avg[TOTSTUDENTS];
+    int highest_avg, lowest_avg;
     
     //Permite ao usuário entrar com os dados de N alunos
     for(i = 0; i < TOTSTUDENTS; i++){
@@ -44,9 +45,21 @@ void reports(Student *s){
         } 
     }
     
+    //Encotra a maior e menor média geral dos alunos
+    highest_avg = lowest_avg = 0;
+    for(i = 0; i < TOTSTUDENTS; i++){
+        avg[i] = (s[i].grade1 + s[i].grade2 + s[i].grade3)/3;
+        if(avg[i] > avg[highest_avg]){
+            highest_avg = i;
+        } else if (avg[i] < avg[lowest_avg]){
+            lowest_avg = i;
+        }        
+    }
 
     printf("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n");
     printf("The highest first grade is: %s -> %.1f\n", s[highest_grade].name, s[highest_grade].grade1);
+    printf("The highest general average is: %s -> %.1f\n", s[highest_avg].name, avg[highest_avg]);
+    printf("The lowest general average is: %s -> %.1f\n", s[lowest_avg].name, avg[lowest_avg]);
 }
 
 int main(){
