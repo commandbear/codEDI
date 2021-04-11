@@ -25,25 +25,28 @@ void populateStudents (Student *s){
 void reports(Student *s){
     int i;
     int highest_grade = 0, lowest_grade = 0;
-
+    float avg = 0;
     
+    //Permite ao usuário entrar com os dados de N alunos
     for(i = 0; i < TOTSTUDENTS; i++){
         printf("==========================\n");
-        printf("Student ID: %ld\n", s[i].code);
+        printf("Student ID: %ld\n", s[i].code); //está excluindo zeros a esquerda (corrigir)
         printf("Name: %s\n", s[i].name);
         printf("Grade 1: %.1f\n", s[i].grade1);
         printf("Grade 2: %.1f\n", s[i].grade2);
         printf("Grade 3: %.1f\n", s[i].grade3);
     }
-    printf("\n\nOUT OF FIRST LOOP -> CRNTY HG: %d\n\n", highest_grade);
+
+    //Encontra o aluno com a maior nota na primeira prova
     for(i = 1; i < TOTSTUDENTS; i++){
         if(s[i].grade1 > s[highest_grade].grade1){
             highest_grade = i;
         } 
     }
-   
+    
+
     printf("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n");
-    printf("The highest first grade is %.1f\n", s[highest_grade].grade1);
+    printf("The highest first grade is: %s -> %.1f\n", s[highest_grade].name, s[highest_grade].grade1);
 }
 
 int main(){
