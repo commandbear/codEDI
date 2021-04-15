@@ -36,7 +36,8 @@ void populate_teams(Team *t){
     }
 }
 void tournment(Team *t){
-    /*
+    int totPoints[N], champion = 0, aux = 0, current = 0;
+    
     for (int i = 0; i < N; i++){
         printf("=======================================\n");
         printf("Time    : %s\n", t[i].name);
@@ -44,26 +45,19 @@ void tournment(Team *t){
         printf("Empates : %d\n", t[i].draws);
         printf("Derrotas: %d\n", t[i].defeats);
         printf("Saldo   : %d\n", t[i].goal_diff);
-    }*/
-    int totPoints[N], champion = 0, aux = 0, current = 0;
-    
+    }
+        
     for (int i = 0; i < N; i++){ //i == [1]
         totPoints[i] = t[i].victories * 3 + t[i].draws;
-        if(totPoints[i] > current){ //current == 0 -> 12p
-            current = totPoints[i]; //current = 12
-            champion = i; //champion = [0]
-            aux = champion; //aux = [0]
-        } else if (totPoints[i] == current){//[1] == [0]
-            if(t[i].goal_diff <= t[champion].goal_diff){//12 == 12
-                champion = aux;
-                printf("Primeiro -> Index CHAMPION: %d\nIndex AUX: %d\nIndex i: %d\n", champion, aux, i);
-            } 
-        }        
-        printf("Segundo -> Index CHAMPION: %d\nIndex AUX: %d\nIndex i: %d\n", champion, aux, i);
+        if(totPoints[i] > current || (totPoints[i] == current && t[i].goal_diff > t[champion].goal_diff)){
+            current = totPoints[i];
+            champion = i;
+            aux = i;
+        } else if(totPoints[i] == current && t[i].goal_diff == t[champion].goal_diff && aux < i){
+            champion = aux;
+        }
     }
-    
     printf("The CHAMPION IS -> %s: Points = %d\n", t[champion].name, totPoints[champion]);
-    printf("The OTHER ARE -> %s: Points = %d\n%s: Points = %d", t[champion].name, totPoints[champion]);
 }
 
 int main(){
