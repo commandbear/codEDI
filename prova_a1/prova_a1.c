@@ -8,7 +8,7 @@
 #define N 3
 #define P 6
 
-//Questão 1
+//Questão 1 - incompleta
 void populateStudents (Student *s){
     //Permite ao usuário entrar com os dados de N alunos
     for (int i = 0; i < TOTSTUDENTS; i++ ){
@@ -92,7 +92,7 @@ void reports(Student *s){
     printf("Aluno com a menor media: %s -> %.1f\n", s[lowest_avg].name, avg[lowest_avg]);
 }
 
-//Questão 2
+//Questão 2 - completa
 void populate_teams(Team *t){
     int aux = 0, i;
 
@@ -145,7 +145,7 @@ void tournment(Team *t){
 
 //Questão 4
 
-//Questão 5
+//Questão 5 - completa
 long multi(int a, int b){
     if(a == 0 || b == 0){
         return 0;
