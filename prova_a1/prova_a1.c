@@ -148,6 +148,7 @@ int main(){
     Team teams[N];
     
     do{
+        setbuf(stdin, NULL);
         printf("Digite a questao desejada {1, 2, 3, 4, 5} -> {0} Sair: ");
         scanf("%d", &choice);
         switch (choice){
@@ -169,6 +170,7 @@ int main(){
             printf("Fim da Prova\n\n"); break;
         default:
             printf("Escolha Incorreta\n");
+            setbuf(stdin, NULL);
         }
     } while (choice != 0);
     
