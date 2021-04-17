@@ -44,7 +44,7 @@ void populate_teams(Team *t){
 }
 void tournment(Team *t){
     int totPoints[N], champion = 0, aux = 0, current = 0;
-    
+    printf("\n\n[-- Tabela de Clubes --]\n");
     for (int i = 0; i < N; i++){
         printf("=======================================\n");
         printf("Time    : %s\n", t[i].name);
