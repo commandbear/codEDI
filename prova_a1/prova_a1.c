@@ -155,10 +155,12 @@ int main(){
         case 1:
             populateStudents(students);
             reports(students);
+            setbuf(stdin, NULL);
             break;
         case 2:
             populate_teams(teams);
             tournment(teams);
+            setbuf(stdin, NULL);
             break;
         case 3:
             printf("Questão 3 em construção\n"); break;
