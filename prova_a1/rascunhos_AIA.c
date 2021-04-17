@@ -20,7 +20,9 @@ void testeIteracao(Student *student){
 
 //Questão 2 - Rascunho
 void populate_teams(Team *t){
-    for(int i = 0; i < N; i++){
+    int aux = 0, i;
+
+    for(i = 0; i < N; i++){
         printf("---------------------------------------\n");
         setbuf(stdin, NULL);
         printf("Time    : ");
@@ -33,6 +35,11 @@ void populate_teams(Team *t){
         scanf("%d", &t[i].defeats);
         printf("Saldo   : ");
         scanf("%d", &t[i].goal_diff);
+        if(t[i].victories + t[i].draws + t[i].defeats != P){
+            aux = i - 1;
+            i = aux;
+            printf("Repeat the operation\n");
+        }
     }
 }
 void tournment(Team *t){
