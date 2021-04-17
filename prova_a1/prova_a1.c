@@ -149,8 +149,10 @@ void tournment(Team *t){
 long multi(int a, int b){
     if(a == 0 || b == 0){
         return 0;
+    } else if (b>0){
+        return a + multi(a, b-1);
     } else {
-        return a*b; //não é isso que ele quer, mas é pro caso de não lembrar, não entregar em branco
+        return -a + multi(-a, b+1);
     }
 }
 
