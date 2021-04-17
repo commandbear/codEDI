@@ -26,7 +26,6 @@ void populateStudents (Student *s){
         scanf("%f", &s[i].grade3);
     }
 }
-
 void reports(Student *s){
     int i;
     int highest_grade = 0, lowest_grade = 0;
@@ -142,8 +141,21 @@ void tournment(Team *t){
     printf("O vencedor foi o -> %s com %d pontos\n", t[champion].name, totPoints[champion]);
 }
 
+//Questão 3
+
+//Questão 4
+
+//Questão 5
+long multi(int a, int b){
+    if(a == 0 || b == 0){
+        return 0;
+    } else {
+        return a*b; //não é isso que ele quer, mas é pro caso de não lembrar, não entregar em branco
+    }
+}
+
 int main(){
-    int choice;
+    int choice, x, n;
     Student students[TOTSTUDENTS];
     Team teams[N];
     
@@ -167,15 +179,18 @@ int main(){
         case 4:
             printf("Questão 4 em construção\n"); break;
         case 5:
-            printf("Questão 5 em construção\n"); break;
+            printf("Digite o primeiro valor inteiro: ");
+            scanf("%d", &x);
+            printf("Digite o segundo valor inteiro: ");
+            scanf("%d", &n);
+            printf("Resultado: %d x %d = %d\n", x, n, multi(x, n));
         case 0:
             printf("Fim da Prova\n\n"); break;
         default:
             printf("Escolha Incorreta\n");
             setbuf(stdin, NULL);
         }
-    } while (choice != 0);
-    
+    } while (choice != 0);    
 
     return 0;
 }

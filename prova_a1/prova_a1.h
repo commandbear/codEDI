@@ -1,9 +1,3 @@
-//Função de Limpar Buffer
-void cleanBuffer(void){
-    char c;
-    while ((c = getchar()) != '\n' && c != EOF);    
-}
-
 //Struct da Questão 1
 typedef struct{
     long code;
@@ -13,6 +7,7 @@ typedef struct{
     float grade3;
 } Student;
 
+//Struct da Questão 2
 typedef struct {
     char name[100];
     int victories;
@@ -20,4 +15,3 @@ typedef struct {
     int defeats;
     int goal_diff;
 } Team;
-
