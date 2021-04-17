@@ -184,6 +184,7 @@ int main(){
             printf("Digite o segundo valor inteiro: ");
             scanf("%d", &n);
             printf("Resultado: %d x %d = %d\n", x, n, multi(x, n));
+            break;
         case 0:
             printf("Fim da Prova\n\n"); break;
         default:
