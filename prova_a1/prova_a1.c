@@ -143,7 +143,20 @@ void tournment(Team *t){
 
 //Questão 3
 
-//Questão 4
+//Questão 4 - (COMPLETO ?????) Aguardando resposta do professor.
+int bin_search(int *v, int begin, int end, int value){
+    int mid;
+    mid = (begin + end) / 2;
+    if(begin > end){
+        return -1;
+    } else if (value == v[mid]){
+        return mid;
+    } else if (value < v[mid]){
+        bin_search(v, begin, mid-1, value); //procura o elemento do primeiro indice até o meio - 1
+    } else {
+        bin_search(v, mid+1, end, value); //procura o elemento do meio + 1 até o último indice
+    }
+}
 
 //Questão 5 - completa
 long multi(int a, int b){
@@ -157,9 +170,10 @@ long multi(int a, int b){
 }
 
 int main(){
-    int choice, x, n;
+    int choice, x, n, key;
     Student students[TOTSTUDENTS];
     Team teams[N];
+    int vector[5] = {1, 2, 3, 4, 5};
     
     do{
         setbuf(stdin, NULL);
@@ -177,18 +191,21 @@ int main(){
             setbuf(stdin, NULL);
             break;
         case 3:
-            printf("Questão 3 em construção\n"); break;
+            printf("Questao 3 em construcao\n"); break;
         case 4:
-            printf("Questão 4 em construção\n"); break;
+            printf("Digite o elemento desejado: ");
+            scanf("%d", &key);
+            printf("Index do elemento digitado >> %d\n\n", bin_search(vector, 0, 4, key));
+            break;
         case 5:
             printf("Digite o primeiro valor inteiro: ");
             scanf("%d", &x);
             printf("Digite o segundo valor inteiro: ");
             scanf("%d", &n);
-            printf("Resultado: %d x %d = %d\n", x, n, multi(x, n));
+            printf("Resultado: %d x %d = %d\n\n", x, n, multi(x, n));
             break;
         case 0:
-            printf("Fim da Prova\n\n"); break;
+            printf("\nFim da Prova\n\n"); break;
         default:
             printf("Escolha Incorreta\n");
             setbuf(stdin, NULL);
