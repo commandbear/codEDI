@@ -12,6 +12,6 @@ int main(){
     printf("PRINT 1: %d\n", value); //10
     int result = func (&value); // 35 - passa o endereço de memoria da variavel value como parametro (passagem por parâmetro)
     printf("PRINT 2: %d\n", value); //20
-    printf("Function's return: %d", result);
+    printf("Function's return: %d", result); //35
     return 0;
 }
