@@ -142,8 +142,10 @@ void tournment(Team *t){
 }
 
 //Questão 3
+void max_min(int *v, int N, int *max, int *min){
 
-//Questão 4 - (COMPLETO ?????) Aguardando resposta do professor.
+}
+//Questão 4 - completa
 int bin_search(int *v, int begin, int end, int value){
     int mid;
     mid = (begin + end) / 2;
