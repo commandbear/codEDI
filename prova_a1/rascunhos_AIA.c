@@ -19,6 +19,7 @@ void testeIteracao(Student *student){
 */
 
 //Questão 2 - Rascunho
+/*
 void populate_teams(Team *t){
     int aux = 0, i;
 
@@ -66,6 +67,7 @@ void tournment(Team *t){
     }
     printf("The CHAMPION IS -> %s: Points = %d\n", t[champion].name, totPoints[champion]);
 }
+*/
 
 int main(){
     //Questão 1 - Rascunho
@@ -91,9 +93,13 @@ int main(){
     */
     
    //Questão 2 - Rascunho
+   /*
    Team teams[N];
    populate_teams(teams);
    tournment(teams);
-    
-    return 0;
+   */
+   //Questão 3 - Rascunho
+   
+
+   return 0;
 }
