@@ -5,10 +5,11 @@
 #include <conio.h>
 #include "prova_a1.h"
 #define TOTSTUDENTS 3
-#define N 3
+#define T 3
 #define P 6
 
 //Questão 1 - incompleta
+/*
 void populateStudents (Student *s){
     //Permite ao usuário entrar com os dados de N alunos
     for (int i = 0; i < TOTSTUDENTS; i++ ){
@@ -91,12 +92,12 @@ void reports(Student *s){
     printf("Aluno com a maior media: %s -> %.1f\n", s[highest_avg].name, avg[highest_avg]);
     printf("Aluno com a menor media: %s -> %.1f\n", s[lowest_avg].name, avg[lowest_avg]);
 }
-
+*/
 //Questão 2 - completa
 void populate_teams(Team *t){
     int aux = 0, i;
 
-    for(i = 0; i < N; i++){
+    for(i = 0; i < T; i++){
         printf("---------------------------------------\n");
         setbuf(stdin, NULL);
         printf("Time    : ");
@@ -117,9 +118,9 @@ void populate_teams(Team *t){
     }
 }
 void tournment(Team *t){
-    int totPoints[N], champion = 0, aux = 0, current = 0;
+    int totPoints[T], champion = 0, aux = 0, current = 0;
     printf("\n\n[-- Tabela de Clubes --]\n");
-    for (int i = 0; i < N; i++){
+    for (int i = 0; i < T; i++){
         printf("=======================================\n");
         printf("Time    : %s\n", t[i].name);
         printf("Vitorias: %d\n", t[i].victories);
@@ -128,7 +129,7 @@ void tournment(Team *t){
         printf("Saldo   : %d\n", t[i].goal_diff);
     }
         
-    for (int i = 0; i < N; i++){ //i == [1]
+    for (int i = 0; i < T; i++){ //i == [1]
         totPoints[i] = t[i].victories * 3 + t[i].draws;
         if(totPoints[i] > current || (totPoints[i] == current && t[i].goal_diff > t[champion].goal_diff)){
             current = totPoints[i];
@@ -138,12 +139,20 @@ void tournment(Team *t){
             champion = aux;
         }
     }
-    printf("O vencedor foi o -> %s com %d pontos\n", t[champion].name, totPoints[champion]);
+    printf("O vencedor foi o -> %s com %d pontos\n\n", t[champion].name, totPoints[champion]);
 }
 
 //Questão 3
 void max_min(int *v, int N, int *max, int *min){
-
+    int i;
+    *min = *max = v[0];
+    for(i=0; i<N; i++){
+        if(v[i] >= *max){
+            *max = v[i];
+        } else if(v[i] <= *min) {
+            *min = v[i];
+        }
+    }
 }
 //Questão 4 - completa
 int bin_search(int *v, int begin, int end, int value){
@@ -154,9 +163,9 @@ int bin_search(int *v, int begin, int end, int value){
     } else if (value == v[mid]){
         return mid;
     } else if (value < v[mid]){
-        bin_search(v, begin, mid-1, value); //procura o elemento do primeiro indice até o meio - 1
+       bin_search(v, begin, mid-1, value); //procura o elemento do primeiro indice até o meio - 1
     } else {
-        bin_search(v, mid+1, end, value); //procura o elemento do meio + 1 até o último indice
+       bin_search(v, mid+1, end, value); //procura o elemento do meio + 1 até o último indice
     }
 }
 
@@ -173,18 +182,20 @@ long multi(int a, int b){
 
 int main(){
     int choice, x, n, key;
-    Student students[TOTSTUDENTS];
-    Team teams[N];
-    int vector[5] = {1, 2, 3, 4, 5};
-    
+    int maximus, minimus, length;
+    //Student students[TOTSTUDENTS];
+    Team teams[T];
+    int vector[8] = {9, 19, 20, 80, 82, 83, 87, 92};
+    int vec[8];
+
     do{
         setbuf(stdin, NULL);
-        printf("Digite a questao desejada {1, 2, 3, 4, 5} -> {0} Sair: ");
+        printf("Digite a questao desejada {1, 2, 3, 4, 5} -> Sair {0}: ");
         scanf("%d", &choice);
         switch (choice){
         case 1:
-            populateStudents(students);
-            reports(students);
+            //populateStudents(students);
+            //reports(students);
             setbuf(stdin, NULL);
             break;
         case 2:
@@ -193,18 +204,24 @@ int main(){
             setbuf(stdin, NULL);
             break;
         case 3:
-            printf("Questao 3 em construcao\n"); break;
+            for(length = 0; length<8; length++){
+                printf("Digite um numeral: ");
+                scanf("%d", &vec[length]);
+            }            
+            max_min(vec, length, &maximus, &minimus);
+            printf("Tamanho do vetor: %d\nMaior valor: %d\nMenor valor: %d\n\n", length, maximus, minimus);
+            break;
         case 4:
             printf("Digite o elemento desejado: ");
             scanf("%d", &key);
-            printf("Index do elemento digitado >> %d\n\n", bin_search(vector, 0, 4, key));
+            printf("Index do elemento digitado >> %d\n\n", bin_search(vector, 0, 8, key));
             break;
         case 5:
             printf("Digite o primeiro valor inteiro: ");
             scanf("%d", &x);
             printf("Digite o segundo valor inteiro: ");
             scanf("%d", &n);
-            printf("Resultado: %d x %d = %d\n\n", x, n, multi(x, n));
+            printf("Resultado: %d x %d = %ld\n\n", x, n, multi(x, n));
             break;
         case 0:
             printf("\nFim da Prova\n\n"); break;
