@@ -73,7 +73,15 @@ void tournment(Team *t){
 
 //Questão 3 - Rascunho
 void max_min(int *v, int N, int *max, int *min){
-
+    int i;
+    *min = *max = v[0];
+    for(i=0; i<N; i++){
+        if(v[i] >= *max){
+            *max = v[i];
+        } else if(v[i] <= *min) {
+            *min = v[i];
+        }
+    }
 }
 
 int main(){
@@ -106,18 +114,16 @@ int main(){
    tournment(teams);
    */
    //Questão 3 - Rascunho
-   int vector[3] = {1, 19, 20};
-   int min, max, i;
-   min = max = vector[0];
-   for(i = 0; i<3; i++){
-       if(vector[i] >= max){
-           max = vector[i];
-       } else if (vector[i] <= min){
-           min = vector[i];
-       }       
+   int vector[8];
+   int maximus, minimus, length;
+   for(length = 0; length<8; length++){
+       printf("Digite um numeral: ");
+       scanf("%d", &vector[length]);
    }
 
-   printf("Total de elementos: %i\nMin: %d\nMax: %d\n", i, min, max);
+   max_min(vector, length, &maximus, &minimus);
+
+   printf("Tamanho do vetor: %d\nMaior valor: %d\nMenor valor: %d\n\n", length, maximus, minimus);
 
 
    return 0;
