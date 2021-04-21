@@ -1,7 +1,9 @@
 #include <stdio.h>
 #include "prova_a1.h"
-#define N 3
-#define P 6
+#include <stdlib.h>
+//#include <string.h>
+//#define N 3
+//#define P 6
 
 //Questão 1 - Rascunho
 /*
@@ -69,6 +71,11 @@ void tournment(Team *t){
 }
 */
 
+//Questão 3 - Rascunho
+void max_min(int *v, int N, int *max, int *min){
+
+}
+
 int main(){
     //Questão 1 - Rascunho
     /*
@@ -99,7 +106,19 @@ int main(){
    tournment(teams);
    */
    //Questão 3 - Rascunho
-   
+   int vector[3] = {1, 19, 20};
+   int min, max, i;
+   min = max = vector[0];
+   for(i = 0; i<3; i++){
+       if(vector[i] >= max){
+           max = vector[i];
+       } else if (vector[i] <= min){
+           min = vector[i];
+       }       
+   }
+
+   printf("Total de elementos: %i\nMin: %d\nMax: %d\n", i, min, max);
+
 
    return 0;
 }
