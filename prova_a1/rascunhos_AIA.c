@@ -2,11 +2,10 @@
 #include "prova_a1.h"
 #include <stdlib.h>
 //#include <string.h>
-//#define N 3
+#define N 3
 //#define P 6
 
 //Questão 1 - Rascunho
-/*
 void testeIteracao(Student *student){
     for(int i = 0; i < N; i++){
         setbuf(stdin, NULL);
@@ -18,7 +17,7 @@ void testeIteracao(Student *student){
         scanf("%f", &student[i].grade2);
     }
 }
-*/
+
 
 //Questão 2 - Rascunho
 /*
@@ -72,6 +71,7 @@ void tournment(Team *t){
 */
 
 //Questão 3 - Rascunho
+/*
 void max_min(int *v, int N, int *max, int *min){
     int i;
     *min = *max = v[0];
@@ -83,30 +83,35 @@ void max_min(int *v, int N, int *max, int *min){
         }
     }
 }
-
+*/
 int main(){
     //Questão 1 - Rascunho
-    /*
     Student student[N];
     int nota_alta, nota_baixa;
     testeIteracao(student);
+    char status[15];
 
+    printf("NOME\t|\tNota 1\t|\tNota 2\t|\tStatus\n");
+    printf("----------------------------------------------------------\n");
     for (int i = 0; i < N; i++){
-        printf("\n++++++++++++++++++++++++++++++++++\n");
-        printf("Nome: %s\n", student[i].name);
-        printf("Nota 1: %.1f\n", student[i].grade1);        
-        printf("Nota 2: %.1f\n", student[i].grade2);
+        printf("%s\t|\t%.1f\t|\t%.1f\t|\t",student[i].name, student[i].grade1, student[i].grade2);
+        if(student[i].grade1 + student[i].grade2 / 2 >= 6){
+            printf("Aprovado\n");
+        } else {
+            printf("Reprovado\n");
+        }
+        printf("----------------------------------------------------------\n");
     }
-
+    /*
     nota_alta = 0;
     for (int i = 1; i < N; i++){
         if(student[i].grade1 > student[nota_alta].grade1){
             nota_alta = i;
         }
     }
+    
     printf("Primeira Nota mais alta: %f", student[nota_alta].grade1);
     */
-    
    //Questão 2 - Rascunho
    /*
    Team teams[N];
@@ -114,6 +119,7 @@ int main(){
    tournment(teams);
    */
    //Questão 3 - Rascunho
+   /*
    int vector[8];
    int maximus, minimus, length;
    for(length = 0; length<8; length++){
@@ -124,7 +130,7 @@ int main(){
    max_min(vector, length, &maximus, &minimus);
 
    printf("Tamanho do vetor: %d\nMaior valor: %d\nMenor valor: %d\n\n", length, maximus, minimus);
-
+*/
 
    return 0;
 }
