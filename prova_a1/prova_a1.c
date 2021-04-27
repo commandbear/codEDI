@@ -8,8 +8,7 @@
 #define T 3
 #define P 6
 
-//Questão 1 - incompleta
-/*
+//Questão 1 - completa
 void populateStudents (Student *s){
     //Permite ao usuário entrar com os dados de N alunos
     for (int i = 0; i < TOTSTUDENTS; i++ ){
@@ -29,11 +28,13 @@ void populateStudents (Student *s){
 }
 void reports(Student *s){
     int i;
-    int highest_grade = 0, lowest_grade = 0;
+    int highest_grade = 0;
+    //int lowest_grade = 0; - não é usada
     float avg[TOTSTUDENTS];
     int highest_avg, lowest_avg;
     
     //Permite mostrar os dados de N alunos
+    /*
     for(i = 0; i < TOTSTUDENTS; i++){
         printf("=======================================\n");
         printf("Student ID: %ld\n", s[i].code); //está excluindo zeros a esquerda (corrigir)
@@ -42,7 +43,7 @@ void reports(Student *s){
         printf("Grade 2: %.1f\n", s[i].grade2);
         printf("Grade 3: %.1f\n", s[i].grade3);
     }
-
+    */
     //Encontra o aluno com a maior nota na primeira prova
     for(i = 1; i < TOTSTUDENTS; i++){
         if(s[i].grade1 > s[highest_grade].grade1){
@@ -61,38 +62,24 @@ void reports(Student *s){
         }        
     }
 
-    //Lista de Aprovados e Reprovados
-    printf("===================Aprovado==================\n");
-    for(i = 0; i < TOTSTUDENTS; i++){        
-        if(avg[i] >= 6){            
-            for (int aux = 0; aux < TOTSTUDENTS; aux++){
-                printf("---------------------------------------\n");
-                printf("Student ID: %ld\n", s[i].code);
-                printf("Name: %s\n", s[i].name);
-                printf("Grade 1: %.1f\n", s[i].grade1);
-                printf("Grade 2: %.1f\n", s[i].grade2);
-                printf("Grade 3: %.1f\n", s[i].grade3);
-            }
+    printf("ID Aluno\t|\tNOME\t|\tNota 1\t|Nota 2\t|\tNota 3\t|\tMEDIA\t|\tStatus\n");
+    printf("-------------------------------------------------------------------\n");
+    for(i = 0; i < TOTSTUDENTS; i++){
+        printf("%ld\t|\t%s\t|\t%.1f\t|\t%.1f\t|\t%.1f\t|\t%.1f|", s[i].code, s[i].name, s[i].grade1, s[i].grade2, s[i].grade3, avg[i]);
+        if(s[i].grade1 + s[i].grade2 + s[i].grade3 / 3 >= 6){
+            printf("\tAprovado\n");
+        } else {
+            printf("\tReprovado\n");
         }
-        if(avg[i] < 6){
-            printf("===================Reprovado==================\n");
-            for (int aux = 0; aux < TOTSTUDENTS; aux++){
-                printf("---------------------------------------\n");
-                printf("Student ID: %ld\n", s[i].code);
-                printf("Name: %s\n", s[i].name);
-                printf("Grade 1: %.1f\n", s[i].grade1);
-                printf("Grade 2: %.1f\n", s[i].grade2);
-                printf("Grade 3: %.1f\n", s[i].grade3);
-            }
-        }
+        printf("-------------------------------------------------------------------\n");
     }
 
-    printf("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n");
+    printf("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n");
     printf("Aluno com a primeira nota maior: %s -> %.1f\n", s[highest_grade].name, s[highest_grade].grade1);
     printf("Aluno com a maior media: %s -> %.1f\n", s[highest_avg].name, avg[highest_avg]);
     printf("Aluno com a menor media: %s -> %.1f\n", s[lowest_avg].name, avg[lowest_avg]);
 }
-*/
+
 //Questão 2 - completa
 void populate_teams(Team *t){
     int aux = 0, i;
@@ -183,7 +170,7 @@ long multi(int a, int b){
 int main(){
     int choice, x, n, key;
     int maximus, minimus, length;
-    //Student students[TOTSTUDENTS];
+    Student students[TOTSTUDENTS];
     Team teams[T];
     int vector[8] = {9, 19, 20, 80, 82, 83, 87, 92};
     int vec[8];
@@ -194,8 +181,8 @@ int main(){
         scanf("%d", &choice);
         switch (choice){
         case 1:
-            //populateStudents(students);
-            //reports(students);
+            populateStudents(students);
+            reports(students);
             setbuf(stdin, NULL);
             break;
         case 2:
