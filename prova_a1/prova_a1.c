@@ -1,10 +1,12 @@
 //Script com as soluções que compõem a Avaliação Individual Avaliativa (AIA) da Universidade Veiga de Almeida
+//Autor: Yuri Pedro Caetano de Queiroz
+//Matrícula: 20151109342
 
 #include <stdio.h>
 #include <locale.h>
 #include <conio.h>
 #include "prova_a1.h"
-#define TOTSTUDENTS 3
+#define TOTSTUDENTS 5
 #define T 3
 #define P 6
 
@@ -29,28 +31,14 @@ void populateStudents (Student *s){
 void reports(Student *s){
     int i;
     int highest_grade = 0;
-    //int lowest_grade = 0; - não é usada
     float avg[TOTSTUDENTS];
     int highest_avg, lowest_avg;
     
-    //Permite mostrar os dados de N alunos
-    /*
-    for(i = 0; i < TOTSTUDENTS; i++){
-        printf("=======================================\n");
-        printf("Student ID: %ld\n", s[i].code); //está excluindo zeros a esquerda (corrigir)
-        printf("Name: %s\n", s[i].name);
-        printf("Grade 1: %.1f\n", s[i].grade1);
-        printf("Grade 2: %.1f\n", s[i].grade2);
-        printf("Grade 3: %.1f\n", s[i].grade3);
-    }
-    */
-    //Encontra o aluno com a maior nota na primeira prova
     for(i = 1; i < TOTSTUDENTS; i++){
         if(s[i].grade1 > s[highest_grade].grade1){
             highest_grade = i;
         } 
     }
-    
     //Encotra a maior e menor média geral dos alunos
     highest_avg = lowest_avg = 0;
     for(i = 0; i < TOTSTUDENTS; i++){
@@ -62,16 +50,16 @@ void reports(Student *s){
         }        
     }
 
-    printf("ID Aluno\t|\tNOME\t|\tNota 1\t|Nota 2\t|\tNota 3\t|\tMEDIA\t|\tStatus\n");
-    printf("-------------------------------------------------------------------\n");
+    printf("NOME\t|\tNota 1\t|\tNota 2\t|\tNota 3\t|\tMEDIA\t|\tStatus\n");
+    printf("-----------------------------------------------------------------------------------------------------\n");
     for(i = 0; i < TOTSTUDENTS; i++){
-        printf("%ld\t|\t%s\t|\t%.1f\t|\t%.1f\t|\t%.1f\t|\t%.1f|", s[i].code, s[i].name, s[i].grade1, s[i].grade2, s[i].grade3, avg[i]);
-        if(s[i].grade1 + s[i].grade2 + s[i].grade3 / 3 >= 6){
+        printf("%s\t|\t%.1f\t|\t%.1f\t|\t%.1f\t|\t%.1f\t|", s[i].name, s[i].grade1, s[i].grade2, s[i].grade3, avg[i]);
+        if(avg[i] >= 6){
             printf("\tAprovado\n");
         } else {
             printf("\tReprovado\n");
         }
-        printf("-------------------------------------------------------------------\n");
+        printf("-----------------------------------------------------------------------------------------------------\n");
     }
 
     printf("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n");
@@ -100,7 +88,7 @@ void populate_teams(Team *t){
         if(t[i].victories + t[i].draws + t[i].defeats != P){
             aux = i - 1;
             i = aux;
-            printf("Jogos devem ser iguais a V+E+D\nREPITA !\n");
+            printf("Quantidade de jogos devem ser iguais a V+E+D\nREPITA !\n");
         }
     }
 }
@@ -116,7 +104,7 @@ void tournment(Team *t){
         printf("Saldo   : %d\n", t[i].goal_diff);
     }
         
-    for (int i = 0; i < T; i++){ //i == [1]
+    for (int i = 0; i < T; i++){ 
         totPoints[i] = t[i].victories * 3 + t[i].draws;
         if(totPoints[i] > current || (totPoints[i] == current && t[i].goal_diff > t[champion].goal_diff)){
             current = totPoints[i];
@@ -180,17 +168,17 @@ int main(){
         printf("Digite a questao desejada {1, 2, 3, 4, 5} -> Sair {0}: ");
         scanf("%d", &choice);
         switch (choice){
-        case 1:
+        case 1: //Executa a questão 1
             populateStudents(students);
             reports(students);
             setbuf(stdin, NULL);
             break;
-        case 2:
+        case 2: //Executa a questão 2
             populate_teams(teams);
             tournment(teams);
             setbuf(stdin, NULL);
             break;
-        case 3:
+        case 3: //Executa a questão 3
             for(length = 0; length<8; length++){
                 printf("Digite um numeral: ");
                 scanf("%d", &vec[length]);
@@ -198,12 +186,12 @@ int main(){
             max_min(vec, length, &maximus, &minimus);
             printf("Tamanho do vetor: %d\nMaior valor: %d\nMenor valor: %d\n\n", length, maximus, minimus);
             break;
-        case 4:
+        case 4: //Executa a questão 4
             printf("Digite o elemento desejado: ");
             scanf("%d", &key);
             printf("Index do elemento digitado >> %d\n\n", bin_search(vector, 0, 8, key));
             break;
-        case 5:
+        case 5: //Executa a questão 5
             printf("Digite o primeiro valor inteiro: ");
             scanf("%d", &x);
             printf("Digite o segundo valor inteiro: ");
