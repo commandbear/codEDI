@@ -6,6 +6,7 @@
 //#define P 6
 
 //Questão 1 - Rascunho
+/*
 void testeIteracao(Student *student){
     for(int i = 0; i < N; i++){
         setbuf(stdin, NULL);
@@ -17,7 +18,7 @@ void testeIteracao(Student *student){
         scanf("%f", &student[i].grade2);
     }
 }
-
+*/
 
 //Questão 2 - Rascunho
 /*
@@ -86,6 +87,7 @@ void max_min(int *v, int N, int *max, int *min){
 */
 int main(){
     //Questão 1 - Rascunho
+    /*
     Student student[N];
     int nota_alta, nota_baixa;
     testeIteracao(student);
@@ -102,6 +104,7 @@ int main(){
         }
         printf("----------------------------------------------------------\n");
     }
+    */
     /*
     nota_alta = 0;
     for (int i = 1; i < N; i++){
@@ -131,6 +134,8 @@ int main(){
 
    printf("Tamanho do vetor: %d\nMaior valor: %d\nMenor valor: %d\n\n", length, maximus, minimus);
 */
+    //Teste de Alinhamento de Saída
+    
 
    return 0;
 }
