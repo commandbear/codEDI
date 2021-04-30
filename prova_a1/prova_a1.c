@@ -3,8 +3,6 @@
 //Matrícula: 20151109342
 
 #include <stdio.h>
-#include <locale.h>
-#include <conio.h>
 #include "prova_a1.h"
 #define TOTSTUDENTS 5
 #define T 3
