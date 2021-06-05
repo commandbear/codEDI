@@ -5,7 +5,7 @@
 #include "queues.h"
 
 void menu(){
-    int removed;
+    //int removed;
     int option, elem;
     Tqueue *q = NULL;
 
@@ -15,7 +15,8 @@ void menu(){
         printf("2 - Inserir um elemento na fila\n");
         printf("3 - Remover um elemento da fila\n");
         printf("4 - Verificar se a fila está vazia\n");
-        printf("5 - Limpar e remover a fila\n");
+        //printf("5 - Limpar e remover a fila\n");
+        printf("5 - Imprimir a fila\n");
         printf("6 - Sair\n");
         printf("Escolha uma das opcoes: ");
         scanf("%d", &option);
@@ -47,7 +48,7 @@ void menu(){
                 break;
             case 3:
                 if(!q){
-                    printf("Nao é possivel remover elementos de uma fila que nao existe\n\n");
+                    printf("Nao eh possivel remover elementos de uma fila que nao existe\n\n");
                 } else if (empty(q)){
                     printf("Nao eh possivel remover elementos de uma fila vazia.\n\n");
                 } else {
@@ -78,6 +79,18 @@ void menu(){
                 system("cls");
                 break;*/
             case 5:
+                if(!q){
+                    printf("Nao eh possivel imprimir os elementos de uma fila que nao existe\n\n");
+                } else if (empty(q)){
+                    printf("Nao eh possivel imprimir uma fila vazia\n\n");
+                } else {
+                    printf("Imprimindo os elementos da fila\n\n");
+                    print_queue(q);
+                }
+                system("pause"); 
+                system("cls");
+                break;
+            case 6:
                 /*if(q->start && q->end){
                     clear(q);
                 }*/
@@ -92,7 +105,7 @@ void menu(){
                 system("cls");
                 break;
         }
-    }while (option != 5);    
+    }while (option != 6);    
 }
 
 int main(){

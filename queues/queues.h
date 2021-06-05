@@ -91,3 +91,25 @@ void clear(Tqueue *q){
     }
     free(q); //liberar a memória da fila
 }
+
+ //imprimir os elementos da fila passada como parâmetro
+void print_queue(Tqueue *q){
+  //Tqueue *p = *q;
+  Tqueue *p;
+  p = create();
+  int value;
+
+  while (!empty(q)){
+    value = remove_node(q);
+    printf("%d ", value);
+    insert(p, value);
+  }
+  
+  while (!empty(p)){
+    value = remove_node(p);
+    insert(q, value);
+  }
+  printf("\n");
+
+  clear(p);
+}
