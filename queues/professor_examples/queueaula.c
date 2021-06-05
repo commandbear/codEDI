@@ -1,9 +1,11 @@
-#include<stdio.h>
-#include "queues.h"
+/* Arquivo do GITHUB */
+#include <stdio.h>
+#include <unistd.h> // função sleep
+#include "queueaula.h"
+#define SLEEP_TIME 3
 
 void menu () {
-  //int option, elem, removed;
-  int option, elem;
+  int option, elem, removed;
   Tqueue *q = NULL;
 
   do {
@@ -27,8 +29,8 @@ void menu () {
         else {
           printf ("Uma fila já foi criada.\n\n");
         }
-        system("PAUSE");
-        system ("cls");
+        //sleep (SLEEP_TIME);
+        //system ("clear");
         break;
       case 2:
         if (!q) {
@@ -40,8 +42,8 @@ void menu () {
           insert (q, elem);
           printf ("Elemento com valor %d inserido na fila com sucesso.\n\n", elem);
         }
-        system("PAUSE");
-        system ("cls");
+        //sleep (SLEEP_TIME);
+        //system ("clear");
         break;
       case 3:
         if (!q) {
@@ -53,8 +55,8 @@ void menu () {
         else {
           printf ("O elemento %d foi removido da fila.\n\n", remove_node(q));
         }
-        system("PAUSE");
-        system ("cls");
+        //sleep (SLEEP_TIME);
+        //system ("clear");
         break;
       case 4:
         if (empty(q)) {
@@ -63,8 +65,8 @@ void menu () {
         else {
           printf ("\nA fila não está vazia\n\n");
         }
-        system("PAUSE");
-        system ("cls");
+        //sleep (SLEEP_TIME);
+        //system ("clear");
         break;
       case 5:
         if (!q) {
@@ -78,8 +80,8 @@ void menu () {
           print_queue (q);
         }
 
-        system("PAUSE");
-        system ("cls");
+        //sleep (SLEEP_TIME);
+        //system ("clear");
         break;
       // case 5:
       //   if (!q) {
@@ -98,13 +100,13 @@ void menu () {
         // }
         clear (q);
         printf ("Saindo do programa...\n\n");
-        system("PAUSE");
-        system ("cls");
+        //sleep (SLEEP_TIME);
+        //system ("clear");
         break;
       default:
         printf ("Opção inválida!\n\n");
-        system("PAUSE");
-        system ("cls");
+        //sleep (SLEEP_TIME);
+        //system ("clear");
         break;
     }
   } while (option != 6);
