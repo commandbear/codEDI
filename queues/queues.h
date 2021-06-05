@@ -37,10 +37,13 @@ void insert(Tqueue *q, int element){
 
     //Apontar o ponteiro do antigo último elemento para o novo último elemento
     if(q->end){
-        q->end = node;
+        q->end->next = node;
     }
 
+    //andar com o fim da fila
+    q->end = node;
 
+    //apontar o ponteiro de início caso a fila esteja vazia, e adiciona o elemento na primeira posição
     if(!q->start){
         q->start = node;
     }
