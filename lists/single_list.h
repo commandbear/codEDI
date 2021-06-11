@@ -58,3 +58,7 @@ void clear(Tlist *l){
         free(q);
     }
 }
+
+Tlist *search (Tlist *l, int elem){}
+
+Tlist *remove (Tlist *l, int elem){}

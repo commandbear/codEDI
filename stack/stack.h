@@ -14,7 +14,7 @@ typedef struct stack{
 
 Tstack *create(){
     Tstack *s = (Tstack *) malloc (sizeof(Tstack)); //alocando na memoria essa estrutura Tstack
-    s->top = NULL; //ponteiro que aponta para o topo aponta para vazio pq a pilha está vazia
+    s->top = NULL; //ponteiro que aponta para o topo aponta que para vazio, pq a pilha está vazia
     return s;
 }
 
