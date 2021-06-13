@@ -1,5 +1,8 @@
 #include<stdlib.h>
 #include<stdio.h>
+#include<time.h> //para o exercício 1
+#define NUM_ELEMENTS 10
+#define SEARCH_ELEMENTS 3
 
 //estrutura básica de uma lista
 typedef struct list{
@@ -93,3 +96,39 @@ Tlist *remove_elem (Tlist *l, int elem){
     free(p);
     return l;
 } 
+
+//Para o Exercício 1
+void random_draw(){
+    Tlist *list = create(), *found = create();
+    time_t t;
+    int i, r;
+
+    //Inicializar a geração dos números pseudo-aleatórios
+    srand((unsigned) time(&t));
+
+    for(i=1; i<=NUM_ELEMENTS; i++){
+        list = ordered_insert(list, rand() % 20); //busca randomica entre 0 e 20
+    }
+
+    printf("Lista criada \"aleatoriamente\" com os seguintes elementos:\n");
+    print_list(list);
+
+    i = 1;
+    do{
+        r = rand() % 20; 
+        found = search(list, r);
+        if(found){
+            printf("Elemento %d encontrado na busca.\n", found->info);
+            found = remove_elem(found, found->info);
+            i++;
+        } else {
+            printf("Elemento %d nao encontrado na busca.\n", r);
+        }
+    } while(i <= SEARCH_ELEMENTS);
+    printf("+++++++++++Busca Encerrada+++++++++++\n");
+
+    clear(list);
+    clear(found);
+
+    return 0;
+}
