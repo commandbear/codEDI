@@ -3,8 +3,7 @@
 #define ELEMENTS 4
 
 int main(){
-    int value, i, elem;
-    char choose;
+    int value, i, elem, rem;
     Tlist *list, *s;
     list = create();
 
@@ -14,7 +13,7 @@ int main(){
         list = ordered_insert(list, value);
     }
 
-    printf("Digite o elemento a ser encontrado:");
+    printf("Digite o elemento a ser encontrado: ");
     scanf("%d", &elem);
     s = search (list, elem);
     
@@ -27,13 +26,14 @@ int main(){
         printf("Elemento nao encontrado\n");
     }
 
-    printf("Digite o elemento a ser encontrado:");
-    scanf("%d", &elem); //re-uso da variável 'elem'
+    printf("Digite o elemento a ser removido: ");
+    scanf("%d", &elem); //re-uso da variável 'elem' ou use o 'rem'
     list = remove_elem(list, elem);
     print_list(list);
 
     clear(list);
-    clear(s);
+    //clear(s);
 
-    return 0;
+    printf("Cheguei\n");
+    return 0;    
 }
