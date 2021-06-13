@@ -59,6 +59,20 @@ void clear(Tlist *l){
     }
 }
 
-Tlist *search (Tlist *l, int elem){}
+//Busca linear (não recursiva) por um elemento na lista
+Tlist *search (Tlist *l, int elem){
+    Tlist *p = l; //ponteiro auxiliar apontando para a cabeça da lista
+    while(p){ //enquanto tivermos elemento na lista
+        if(p->info != elem){
+            p = p->next; //se o elemento atual for diferente daquele buscado, anda para o próximo
+        } else {
+            return p; //retorna o elemento da lista assim que ele é encontrado
+        }
+    }
+    return p; //só será executado se o elemento não estiver na lista
+}
 
-Tlist *remove (Tlist *l, int elem){}
+//Remover um determinado elemento da lista
+Tlist *remove (Tlist *l, int elem){
+    
+}
