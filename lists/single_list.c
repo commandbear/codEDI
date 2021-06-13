@@ -4,6 +4,7 @@
 
 int main(){
     int value, i, elem;
+    char choose;
     Tlist *list, *s;
     list = create();
 
@@ -25,7 +26,11 @@ int main(){
     } else {
         printf("Elemento nao encontrado\n");
     }
-        
+
+    printf("Digite o elemento a ser encontrado:");
+    scanf("%d", &elem); //re-uso da variável 'elem'
+    list = remove_elem(list, elem);
+    print_list(list);
 
     clear(list);
     clear(s);

@@ -73,6 +73,23 @@ Tlist *search (Tlist *l, int elem){
 }
 
 //Remover um determinado elemento da lista
-Tlist *remove (Tlist *l, int elem){
-    
-}
+Tlist *remove_elem (Tlist *l, int elem){
+    Tlist *previous = NULL, *p = l;
+
+    while ((p != NULL) && (p->info != elem)){ //andando na lista até ela acabar ou encontrar o elemento
+        previous = p;
+        p = p->next;
+    }
+    if(!p){ //p aponta para null, ou seja, o fim da lista foi alcançado - e não encontrei o elemento na lista
+        printf("Elemento %d nao encontrado\n", elem);
+        return l; //retorna a própria lista original sem remover nenhum elemento
+    }
+    if(!previous){//significa que o elemento a ser removido foi encontrado na primeira posição da lista
+        l = l->next; //cabeça da lista passa a apontar para o segundo elemento
+    } else {
+        previous->next = p->next; //o anterior passa a apontar para o elemento seguinte ao elemento p que será removido
+    }
+    printf("Elemento %d removido da lista\n", p->info);
+    free(p);
+    return l;
+} 
