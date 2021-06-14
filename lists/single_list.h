@@ -127,8 +127,7 @@ void random_draw(){
     } while(i <= SEARCH_ELEMENTS);
     printf("+++++++++++Busca Encerrada+++++++++++\n");
 
-    clear(list);
     clear(found);
-
+    clear(list);
     return 0;
 }
