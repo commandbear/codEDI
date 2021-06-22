@@ -77,7 +77,8 @@ Tlist *search (Tlist *l, int elem){
 
 //Remover um determinado elemento da lista
 Tlist *remove_elem (Tlist *l, int elem){
-    Tlist *previous = NULL, *p = l;
+    //Tlist *previous = NULL, *p = l;
+    Tlist *previous = l, *p = l->next;
 
     while ((p != NULL) && (p->info != elem)){ //andando na lista até ela acabar ou encontrar o elemento
         previous = p;
