@@ -1,7 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include"lists.h"
-#include<windows.h>
 /*
 Tlist *mega_sena(){
     Tlist *balls = create(), *numbers = create(), *found = create();
@@ -36,13 +35,10 @@ int main(){
     
     sorteio = mega_sena();
 
-    //for(int i = 1; i <= 30; i++){
-        //sorteio = mega_sena();
-        printf("\n******MEGA-SENA SORTEADA******\n");
-        print_list(sorteio);
-        printf("*****************************\n");
-        //Sleep(2000);
-    //}    
+    printf("\n******MEGA-SENA SORTEADA******\n");
+    print_list(sorteio);
+    printf("*****************************\n");
+        
 
     clear(sorteio);
     return 0;
