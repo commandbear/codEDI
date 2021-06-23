@@ -1,5 +1,6 @@
 #include<stdlib.h>
 #include<stdio.h>
+#include<time.h>
 #define TOT_ELEM 60
 
 typedef struct list{
