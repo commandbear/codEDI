@@ -1,16 +1,16 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-typedef struct node{
+typedef struct queueNode{
     int info;
-    struct node *next;
-}Tnode;
+    struct queueNode *next;
+}TqueueNode;
 
 typedef struct queue{
-    Tnode *start, *end;
+    TqueueNode *start, *end;
 } Tqueue;
 
-Tqueue *createQueue(){
+Tqueue *queueCreator(){
     Tqueue *q = (Tqueue *) malloc(sizeof(Tqueue));
 
     q->start = q->end = NULL;
@@ -23,30 +23,30 @@ int emptyQueue(Tqueue *q){
 }
 
 void insertInQueue(Tqueue *q, int element){
-    Tnode *node = (Tnode *)malloc(sizeof(Tnode));
+    TqueueNode *queueNode = (TqueueNode *)malloc(sizeof(TqueueNode));
 
-    node->info = element;
-    node->next = NULL;
+    queueNode->info = element;
+    queueNode->next = NULL;
 
     if(q->end){
-        q->end->next = node;
+        q->end->next = queueNode;
     }
 
-    q->end = node;
+    q->end = queueNode;
 
     if(!q->start){
-        q->start = node;
+        q->start = queueNode;
     }
 }
 
-int remove_node(Tqueue *q){
+int remove_queueNode(Tqueue *q){
     if(emptyQueue(q)){
         exit(1);
     }
 
     int value = q->start->info;
 
-    Tnode *p = q->start;
+    TqueueNode *p = q->start;
 
     q->start = q->start->next;
 
@@ -60,7 +60,7 @@ int remove_node(Tqueue *q){
 }
 
 void queueCleaner(Tqueue *q){
-    Tnode *p = q->start, *aux;
+    TqueueNode *p = q->start, *aux;
     while(p){
         aux = p;
         p=aux->next;
@@ -69,22 +69,28 @@ void queueCleaner(Tqueue *q){
     free(q);
 }
 
-void printQueue(Tqueue *q){
+void queuePrinter(Tqueue *q){
     Tqueue *p;
-    p = createQueue();
+    p = queueCreator();
     int value;
 
+    if(emptyQueue(q)){
+        printf("Fila vazia\n");
+        //exit(1);
+    }
+
+    printf("Fila -> ");
     while(!emptyQueue(q)){
-        value = remove_node(q);
-        printf("%d", value);
+        value = remove_queueNode(q);
+        printf("[%d] ", value);
         insertInQueue(p, value);
     }
 
     while (!emptyQueue(p)){
-        value = remove_node(p);
+        value = remove_queueNode(p);
         insertInQueue(q, value);
     }
     printf("\n");
 
-    clear(p);
+    queueCleaner(p);
 }
