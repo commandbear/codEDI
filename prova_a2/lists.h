@@ -39,7 +39,8 @@ Tlist *ordered_insert (Tlist *l, int elem){
 void print_list (Tlist *l){
     Tlist *p = l;
 
-    while (p != NULL){
+    //while (p != NULL){
+    while (p){
         printf("[%d] ", p->info);
         p = p->next;
     }
@@ -69,24 +70,27 @@ Tlist *search (Tlist *l, int elem){
 }
 
 Tlist *remove_elem (Tlist *l, int elem){
-    Tlist *previous = NULL, *p = l;
+    Tlist *previous = l, *p = l;
 
-    while ((p != NULL) && (p->info != elem)){
-        previous = p;
-        p = p->next;
-    }
-    if(!p){
-        return l;
-    }
-    if(!previous){
-        l = l->next;
-    } else {
-        previous->next = p->next;
-    }
-    free(p);
+    while (p){
+        if(p->info == elem){
+            if(p == l){
+                l = l->next;
+                free(p);
+                return l;
+            } else {
+                previous->next = p->next;
+                free(p);
+                return l;
+            }
+        } else {
+            previous = p;
+            p = p->next;
+        }
+    }    
     return l;
-} 
-
+}
+/*
 Tlist *mega_sena(){
     Tlist *balls = create(), *numbers = create(), *found = create();
     time_t t;
@@ -111,6 +115,6 @@ Tlist *mega_sena(){
     
     //clear(balls);
     clear(numbers);
-    clear(found);
+    //clear(found);
     return balls;
-}
+}*/

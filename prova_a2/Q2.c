@@ -3,6 +3,7 @@
 #include"queue.h"
 #include"stack.h"
 
+//completa
 Tstack *Fila2Pilha(Tqueue *f){
     Tstack *p = stackCreator(), *a = stackCreator();
 
