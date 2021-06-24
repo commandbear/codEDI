@@ -23,7 +23,7 @@ int main(){
     char choose;
 
     do{
-        printf("Digite um elemento para inserir na FILA: ");
+        printf("Digite um elemento para inserir na LISTA: ");
         scanf("%d", &elem);
         lista = ordered_insert(lista, elem);
         setbuf(stdin, NULL);

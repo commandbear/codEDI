@@ -35,7 +35,6 @@ Tlist *mega_sena(){
 int main(){
     Tlist *sorteio = create();
     
-    //sorteio = mega_sena();
     //for(int i = 0; i<=2; i++){
         sorteio = mega_sena();
         printf("\n******MEGA-SENA SORTEADA******\n");
