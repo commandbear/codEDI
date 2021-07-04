@@ -2,32 +2,61 @@
 #include"queue.h"
 
 Tqueue *concatena_filas(Tqueue *pairs, Tqueue *odd, Tqueue *all){
-    //Tqueue *auxPair = pairs, *auxOdd = odd;
-    Tqueue *auxPair = createQ(), *auxOdd = createQ();
-    int auxP1, auxI1, auxP2, auxI2, maior;
+    Tqueue *bkpPair = createQ();
+    Tqueue *bkpOdd = createQ();
+    Tqueue *auxPair = pairs, *auxOdd = odd;
+    //int menor, maior, removido;
+    int auxP1, auxI1;
+    //int  auxP2, auxI2;
 
-    while (!emptyQ(auxPair) && !emptyQ(auxOdd)){
-        auxP1 = removerQueueNode(pairs);
-        //auxP2 = removerQueueNode(auxPair);
-        auxI1 = removerQueueNode(odd);
-        //auxI2 = removerQueueNode(auxOdd);
-        printf("\nPar: %d    Impar: %d\n\n", auxP, auxI);
-        if(auxP < auxI){
-            insertQ(all, auxP);
-            insertQ(auxOdd, auxI);
-            printf("Pegou Par\n");
-            printQ(all);
-        }
-        if(auxP > auxI){
-            insertQ(all, auxI);
-            insertQ(auxPair, auxP);
-            printf("Pegou Impar\n");
-            printQ(all);
-        }
-        //auxP = auxI = NULL;
+    /*
+    while (!emptyQ(auxPair)){
+        insertQ(auxiliar, removerQueueNode(auxPair));
     }
-    //clearQ(auxPair);
-    //clearQ(auxOdd);
+    while (!emptyQ(auxOdd)){
+        insertQ(auxiliar, removerQueueNode(auxOdd));
+    }
+    */
+
+    do{
+        if(!emptyQ(auxPair)){
+            auxP1 = removerQueueNode(auxPair);
+        } else {
+            while (!emptyQ(auxOdd)){
+                insertQ(all, removerQueueNode(auxOdd));
+            }
+        }
+        if(!emptyQ(auxOdd)){
+            auxI1 = removerQueueNode(auxOdd);
+        } else {
+            while (!emptyQ(auxPair)){
+                insertQ(all, removerQueueNode(auxPair));
+            }
+        }
+    
+        if(auxP1 < auxI1){
+            insertQ(all, auxP1);
+            insertQ(bkpOdd, auxI1);
+            while (!emptyQ(auxOdd)){
+                insertQ(bkpOdd, removerQueueNode(auxOdd));
+            }
+            while (!emptyQ(bkpOdd)){
+                insertQ(auxOdd, removerQueueNode(bkpOdd));
+            }           
+        }
+        if(auxP1 > auxI1){
+            insertQ(all, auxI1);
+            insertQ(bkpPair, auxP1);
+            while (!emptyQ(auxPair)){
+                insertQ(bkpPair, removerQueueNode(auxPair));
+            }
+            while (!emptyQ(bkpPair)){
+                insertQ(auxPair, removerQueueNode(bkpPair));
+            }
+        }
+    } while (!emptyQ(auxPair) && !emptyQ(auxOdd));    
+    clearQ(auxPair);
+    clearQ(auxOdd);
     return all;
 }
 
@@ -58,8 +87,7 @@ int main(){
     printf("Fila Ordenada\n");
     printQ(concatena_filas(par, impar, completa));
 
-    //clearQ(par);
-    //clearQ(impar);
-    //clearQ(completa);
+    
+    clearQ(completa);
     return 0;
 }
